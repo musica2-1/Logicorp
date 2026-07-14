@@ -284,14 +284,12 @@
       storageSet(DISP_KEY, items);
       renderAvailability();
       renderFeed();        /* reavalia quais entregas estão dentro da disponibilidade */
-      renderGoals();       /* metas podem depender de entregas filtradas */
     });
 
     renderAvailability();
   }
 
   /* -------------------- Metas de entregas -------------------- */
-  var GOALS_KEY = "lagartintregas.metas";
 
   function getCurrentMonthKey() {
     var now = new Date();
@@ -306,14 +304,7 @@
   }
 
   function getMonthlyGoal() {
-    var goals = storageGet(GOALS_KEY, {});
-    return goals[getCurrentMonthKey()] || 30; /* meta padrão: 30 entregas */
-  }
-
-  function setMonthlyGoal(value) {
-    var goals = storageGet(GOALS_KEY, {});
-    goals[getCurrentMonthKey()] = value;
-    storageSet(GOALS_KEY, goals);
+    return 40; /* meta definida pela empresa */
   }
 
   function renderGoals() {
@@ -349,24 +340,6 @@
         statusBox.className = "goal-status goal-status--danger";
       }
     }
-  }
-
-  function initGoals() {
-    var form = $("#goal-form");
-    if (!form) return;
-
-    var input = $("#goal-input");
-    if (input) input.value = getMonthlyGoal();
-
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var val = parseInt(input.value, 10);
-      if (!val || val < 1) return;
-      setMonthlyGoal(val);
-      renderGoals();
-    });
-
-    renderGoals();
   }
 
   /* -------------------- Calendário interativo -------------------- */
@@ -646,7 +619,7 @@
       renderFeed();
       initAvailability();
       initCalendar();
-      initGoals();
+      renderGoals();
       /* O mapa é carregado via callback do Google Maps (carregarMapa) */
     }
 

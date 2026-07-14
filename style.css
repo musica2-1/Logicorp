@@ -412,7 +412,20 @@ code {
 .goal-status--info    { background: var(--color-info-bg);    color: var(--color-info); }
 .goal-status--warning { background: var(--color-warning-bg); color: var(--color-warning); }
 .goal-status--danger  { background: var(--color-danger-bg);  color: var(--color-danger); }
-.goal-form { display: grid; grid-template-columns: 160px auto; gap: 12px; align-items: end; border-top: 1px solid var(--color-border); padding-top: 16px; }
+.goal-company {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--color-info-bg);
+  color: var(--color-info);
+  border-radius: var(--radius-sm);
+  font-size: .88rem;
+  font-weight: 600;
+  margin-top: 16px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
 
 /* ---------- Métricas ---------- */
 .metric-card { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
@@ -556,7 +569,6 @@ code {
   .availability-form .btn { grid-column: 1 / -1; }
   .delivery-item { grid-template-columns: 1fr; gap: 8px; }
   .delivery-item__badges { justify-content: flex-start; }
-  .goal-form { grid-template-columns: 1fr; }
   .goal-summary { gap: 10px; }
   .goal-number__value { font-size: 1.3rem; }
   .dl { grid-template-columns: 1fr; row-gap: 4px; }
