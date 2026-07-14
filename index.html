@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagartIntregas | Acesso ao Portal</title>
+  <meta name="description" content="Portal corporativo de gestão de entregas LagartIntregas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <main class="auth">
+    <section class="auth__panel" aria-labelledby="login-title">
+      <div class="auth__brand">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="2" y="7" width="19" height="14" rx="2"></rect>
+          <path d="M21 11h5l4 4v6h-9z"></path>
+          <circle cx="9" cy="24" r="3"></circle>
+          <circle cx="24" cy="24" r="3"></circle>
+        </svg>
+        <div class="brand__text">
+          <strong>LagartIntregas</strong>
+          <span>Portal de Entregas</span>
+        </div>
+      </div>
+
+      <h1 id="login-title" class="auth__title">Acesse sua conta</h1>
+      <p class="auth__subtitle">Informe suas credenciais corporativas para continuar.</p>
+
+      <form id="login-form" class="form" novalidate>
+        <div class="field">
+          <label for="login-user">Usuário</label>
+          <input type="text" id="login-user" name="user" autocomplete="username" placeholder="Ex.: user" required>
+        </div>
+        <div class="field">
+          <label for="login-pass">Senha</label>
+          <input type="password" id="login-pass" name="password" autocomplete="current-password" placeholder="Sua senha" required>
+        </div>
+        <p id="login-error" class="form__error" role="alert" hidden>Usuário ou senha inválidos. Tente novamente.</p>
+        <button type="submit" class="btn btn--primary btn--block">Entrar</button>
+      </form>
+
+      <p class="auth__hint">Acesso de demonstração: <code>user</code> / <code>123</code></p>
+    </section>
+
+    <aside class="auth__aside" aria-hidden="true">
+      <div class="auth__aside-content">
+        <h2>Gestão de entregas em um só lugar</h2>
+        <p>Disponibilidade, roteiros, calendário operacional e indicadores de desempenho para a equipe de logística.</p>
+        <ul class="auth__features">
+          <li>Registro de jornada e disponibilidade</li>
+          <li>Acompanhamento de entregas em tempo hábil</li>
+          <li>Indicadores mensais de eficiência</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

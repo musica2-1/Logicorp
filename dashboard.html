@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagartIntregas | Painel Principal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <div class="overlay" data-overlay></div>
+  <div class="app-shell">
+
+    <!-- ===================== MENU LATERAL ===================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <div class="brand">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="2" y="7" width="19" height="14" rx="2"></rect>
+          <path d="M21 11h5l4 4v6h-9z"></path>
+          <circle cx="9" cy="24" r="3"></circle>
+          <circle cx="24" cy="24" r="3"></circle>
+        </svg>
+        <div class="brand__text">
+          <strong>LagartIntregas</strong>
+          <span>Portal de Entregas</span>
+        </div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="nav-link active" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+          Painel
+        </a>
+        <a href="suporte.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v2a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 1z"></path><path d="M20 12v2a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 1z"></path><path d="M17 16a4 4 0 0 1-4 4h-2"></path></svg>
+          Suporte
+        </a>
+        <a href="rh.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M16 5.5a3.2 3.2 0 0 1 0 5.6"></path><path d="M17.5 20a5.5 5.5 0 0 0-3-4.9"></path></svg>
+          Recursos Humanos
+        </a>
+        <a href="perfil.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg>
+          Perfil e Métricas
+        </a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="user-chip">
+          <div class="user-chip__avatar" data-user-initials>CA</div>
+          <div class="user-chip__info">
+            <strong data-user-name>Carlos Almeida</strong>
+            <span>Motorista de Entregas</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn--ghost btn--block" data-logout>Encerrar sessão</button>
+      </div>
+    </aside>
+
+    <!-- ===================== CONTEÚDO ===================== -->
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" data-menu-toggle aria-label="Abrir menu de navegação">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+        <div>
+          <h1 class="topbar__title">Painel Principal</h1>
+          <p class="topbar__subtitle">Visão geral da operação de entregas</p>
+        </div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__date" data-current-date></div>
+      </header>
+
+      <main class="content">
+
+        <!-- ---------- Metas de Entregas ---------- -->
+        <section class="card" aria-labelledby="goals-title" id="goals-section">
+          <div class="card__header">
+            <div>
+              <h2 id="goals-title" class="card__title">Metas de Entregas</h2>
+              <p class="card__hint">Acompanhe seu progresso mensal</p>
+            </div>
+          </div>
+          <div class="card__body">
+            <div class="goal-summary">
+              <div class="goal-number">
+                <span class="goal-number__value" id="goal-current">0</span>
+                <span class="goal-number__label">realizadas</span>
+              </div>
+              <div class="goal-divider">de</div>
+              <div class="goal-number">
+                <span class="goal-number__value" id="goal-target">30</span>
+                <span class="goal-number__label">meta</span>
+              </div>
+              <div class="goal-divider">|</div>
+              <div class="goal-number">
+                <span class="goal-number__value" id="goal-pct">0%</span>
+                <span class="goal-number__label">atingido</span>
+              </div>
+              <div class="goal-divider">|</div>
+              <div class="goal-number">
+                <span class="goal-number__value" id="goal-remaining">30</span>
+                <span class="goal-number__label">restantes</span>
+              </div>
+            </div>
+            <div class="goal-bar-track">
+              <div class="goal-bar-fill" id="goal-bar" style="width: 0%"></div>
+            </div>
+            <p class="goal-status" id="goal-status">Carregando...</p>
+            <form id="goal-form" class="goal-form">
+              <div class="field">
+                <label for="goal-input">Definir meta mensal</label>
+                <input type="number" id="goal-input" name="goal" min="1" max="999" value="30" required>
+              </div>
+              <button type="submit" class="btn btn--primary">Atualizar meta</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ---------- Disponibilidade ---------- -->
+        <section class="card" aria-labelledby="disp-title">
+          <div class="card__header">
+            <div>
+              <h2 id="disp-title" class="card__title">Sistema de Disponibilidade</h2>
+              <p class="card__hint">Informe seus horários de trabalho por dia da semana</p>
+            </div>
+          </div>
+          <div class="card__body">
+            <form id="availability-form" class="availability-form">
+              <div class="field">
+                <label for="disp-day">Dia da semana</label>
+                <select id="disp-day" required>
+                  <option value="">Selecione</option>
+                  <option>Segunda-feira</option>
+                  <option>Terça-feira</option>
+                  <option>Quarta-feira</option>
+                  <option>Quinta-feira</option>
+                  <option>Sexta-feira</option>
+                  <option>Sábado</option>
+                  <option>Domingo</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="disp-start">Início</label>
+                <input type="time" id="disp-start" value="09:00" required>
+              </div>
+              <div class="field">
+                <label for="disp-end">Término</label>
+                <input type="time" id="disp-end" value="18:00" required>
+              </div>
+              <button type="submit" class="btn btn--primary">Adicionar</button>
+            </form>
+            <p id="disp-error" class="form__error" role="alert" hidden></p>
+            <div id="availability-list" class="availability-list" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- ---------- Mapa de Entregas ---------- -->
+        <section class="card" aria-labelledby="map-title">
+          <div class="card__header">
+            <div>
+              <h2 id="map-title" class="card__title">Mapa de Entregas</h2>
+              <p class="card__hint">Localização das entregas em rota e pendentes</p>
+            </div>
+          </div>
+          <div class="card__body card__body--flush">
+            <div id="map-container" style="width: 100%; height: 400px; border-radius: 0 0 var(--radius) var(--radius);"></div>
+          </div>
+        </section>
+
+        <div class="grid grid--main">
+          <!-- ---------- Feed de entregas ---------- -->
+          <section class="card" aria-labelledby="feed-title">
+            <div class="card__header">
+              <div>
+                <h2 id="feed-title" class="card__title">Avisos — Feed de Entregas</h2>
+                <p class="card__hint">Entregas atribuídas à sua rota</p>
+              </div>
+              <span class="badge badge--rota" id="feed-count">0 ativas</span>
+            </div>
+            <div class="card__body card__body--flush">
+              <div id="delivery-feed" class="delivery-list" aria-live="polite"></div>
+            </div>
+          </section>
+
+          <!-- ---------- Calendário ---------- -->
+          <section class="card" aria-labelledby="cal-title">
+            <div class="card__header">
+              <div>
+                <h2 id="cal-title" class="card__title">Calendário de Entregas</h2>
+                <p class="card__hint">Pendências mapeadas por data prevista</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="calendar__head">
+                <button type="button" class="btn btn--outline btn--sm" id="cal-prev" aria-label="Mês anterior">Anterior</button>
+                <span class="calendar__title" id="cal-title-label"></span>
+                <button type="button" class="btn btn--outline btn--sm" id="cal-next" aria-label="Próximo mês">Próximo</button>
+              </div>
+              <div class="calendar__grid" id="calendar-weekdays" aria-hidden="true"></div>
+              <div class="calendar__grid" id="calendar-grid" role="grid" aria-label="Calendário mensal de entregas"></div>
+              <div class="calendar__legend">
+                <span><i class="calendar__dot calendar__dot--pendente"></i> Pendente</span>
+                <span><i class="calendar__dot calendar__dot--rota"></i> Em rota</span>
+                <span><i class="calendar__dot calendar__dot--atrasado"></i> Atrasado</span>
+                <span><i class="calendar__dot calendar__dot--entregue"></i> Entregue</span>
+              </div>
+              <div class="calendar__detail" id="calendar-detail" aria-live="polite"></div>
+            </div>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiHIUsOpTksLN8DZoVln7jg49SBbWZsnY&callback=carregarMapa" async defer></script>
+</body>
+</html>

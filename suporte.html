@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagartIntregas | Suporte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="suporte">
+  <div class="overlay" data-overlay></div>
+  <div class="app-shell">
+
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <div class="brand">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="2" y="7" width="19" height="14" rx="2"></rect>
+          <path d="M21 11h5l4 4v6h-9z"></path>
+          <circle cx="9" cy="24" r="3"></circle>
+          <circle cx="24" cy="24" r="3"></circle>
+        </svg>
+        <div class="brand__text">
+          <strong>LagartIntregas</strong>
+          <span>Portal de Entregas</span>
+        </div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+          Painel
+        </a>
+        <a href="suporte.html" class="nav-link active" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v2a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 1z"></path><path d="M20 12v2a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 1z"></path><path d="M17 16a4 4 0 0 1-4 4h-2"></path></svg>
+          Suporte
+        </a>
+        <a href="rh.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M16 5.5a3.2 3.2 0 0 1 0 5.6"></path><path d="M17.5 20a5.5 5.5 0 0 0-3-4.9"></path></svg>
+          Recursos Humanos
+        </a>
+        <a href="perfil.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg>
+          Perfil e Métricas
+        </a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="user-chip">
+          <div class="user-chip__avatar" data-user-initials>CA</div>
+          <div class="user-chip__info">
+            <strong data-user-name>Carlos Almeida</strong>
+            <span>Motorista de Entregas</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn--ghost btn--block" data-logout>Encerrar sessão</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" data-menu-toggle aria-label="Abrir menu de navegação">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+        <div>
+          <h1 class="topbar__title">Suporte Operacional</h1>
+          <p class="topbar__subtitle">Canais de atendimento, dúvidas frequentes e abertura de chamados</p>
+        </div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__date" data-current-date></div>
+      </header>
+
+      <main class="content">
+        <div class="grid grid--main">
+
+          <!-- ---------- Formulário de chamado ---------- -->
+          <section class="card" aria-labelledby="ticket-title">
+            <div class="card__header">
+              <div>
+                <h2 id="ticket-title" class="card__title">Abertura de Chamado</h2>
+                <p class="card__hint">Descreva a ocorrência para a equipe de operações</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <form id="ticket-form" class="form" novalidate>
+                <div class="field">
+                  <label for="ticket-subject">Assunto</label>
+                  <input type="text" id="ticket-subject" name="subject" placeholder="Ex.: Divergência no comprovante de entrega" required>
+                </div>
+                <div class="form__row">
+                  <div class="field">
+                    <label for="ticket-category">Categoria</label>
+                    <select id="ticket-category" name="category">
+                      <option>Entrega</option>
+                      <option>Roteirização</option>
+                      <option>Equipamento / Veículo</option>
+                      <option>Aplicativo / Sistema</option>
+                      <option>Outros</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ticket-priority">Prioridade</label>
+                    <select id="ticket-priority" name="priority">
+                      <option>Baixa</option>
+                      <option selected>Média</option>
+                      <option>Alta</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="ticket-message">Descrição</label>
+                  <textarea id="ticket-message" name="message" placeholder="Detalhe a ocorrência, incluindo datas e identificadores de entrega, se houver."></textarea>
+                </div>
+                <p class="form__success" role="status" hidden></p>
+                <button type="submit" class="btn btn--primary">Enviar chamado</button>
+              </form>
+
+              <div id="ticket-list" class="ticket-list" aria-live="polite"></div>
+            </div>
+          </section>
+
+          <!-- ---------- Contatos + FAQ ---------- -->
+          <div class="grid" style="gap: 20px;">
+            <section class="card" aria-labelledby="contact-title">
+              <div class="card__header">
+                <h2 id="contact-title" class="card__title">Canais de Contato</h2>
+              </div>
+              <div class="card__body">
+                <div class="contact-list">
+                  <div class="contact-item">
+                    <div class="contact-item__icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-item__label">E-mail</div>
+                      <div class="contact-item__value">suporte@lagartintregas.com.br</div>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="contact-item__icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-item__label">Telefone</div>
+                      <div class="contact-item__value">0800 300 4000</div>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="contact-item__icon">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3.5 2"></path></svg>
+                    </div>
+                    <div>
+                      <div class="contact-item__label">Horário de atendimento</div>
+                      <div class="contact-item__value">Segunda a sexta, 08h às 18h</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="card" aria-labelledby="faq-title">
+              <div class="card__header">
+                <h2 id="faq-title" class="card__title">Perguntas Frequentes</h2>
+              </div>
+              <div class="card__body">
+                <div class="faq">
+                  <div class="faq__item">
+                    <button type="button" class="faq__question" aria-expanded="false">Como registro um problema durante uma entrega?</button>
+                    <div class="faq__answer"><p>Abra um chamado nesta página selecionando a categoria “Entrega” e informe o identificador da entrega (ENT-XXXX). A equipe de operações retorna em até 24 horas úteis.</p></div>
+                  </div>
+                  <div class="faq__item">
+                    <button type="button" class="faq__question" aria-expanded="false">O que fazer se o aplicativo de rota não abrir?</button>
+                    <div class="faq__answer"><p>Reinicie o aplicativo e verifique sua conexão. Se o problema persistir, abra um chamado na categoria “Aplicativo / Sistema” informando o modelo do aparelho.</p></div>
+                  </div>
+                  <div class="faq__item">
+                    <button type="button" class="faq__question" aria-expanded="false">Como solicito manutenção do veículo?</button>
+                    <div class="faq__answer"><p>Utilize a categoria “Equipamento / Veículo” com a placa, a quilometragem atual e a descrição do problema. Manutenções preventivas são agendadas pela frota.</p></div>
+                  </div>
+                  <div class="faq__item">
+                    <button type="button" class="faq__question" aria-expanded="false">Posso alterar uma entrega já em rota?</button>
+                    <div class="faq__answer"><p>Alterações em rota são avaliadas pela central de operações. Abra um chamado com prioridade “Alta” e aguarde o retorno antes de desviar do roteiro.</p></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
