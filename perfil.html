@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagartIntregas | Perfil e Métricas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="perfil">
+  <div class="overlay" data-overlay></div>
+  <div class="app-shell">
+
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <div class="brand">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="2" y="7" width="19" height="14" rx="2"></rect>
+          <path d="M21 11h5l4 4v6h-9z"></path>
+          <circle cx="9" cy="24" r="3"></circle>
+          <circle cx="24" cy="24" r="3"></circle>
+        </svg>
+        <div class="brand__text">
+          <strong>LagartIntregas</strong>
+          <span>Portal de Entregas</span>
+        </div>
+      </div>
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+          Painel
+        </a>
+        <a href="suporte.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v2a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 1z"></path><path d="M20 12v2a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 1z"></path><path d="M17 16a4 4 0 0 1-4 4h-2"></path></svg>
+          Suporte
+        </a>
+        <a href="rh.html" class="nav-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M16 5.5a3.2 3.2 0 0 1 0 5.6"></path><path d="M17.5 20a5.5 5.5 0 0 0-3-4.9"></path></svg>
+          Recursos Humanos
+        </a>
+        <a href="perfil.html" class="nav-link active" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg>
+          Perfil e Métricas
+        </a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="user-chip">
+          <div class="user-chip__avatar" data-user-initials>CA</div>
+          <div class="user-chip__info">
+            <strong data-user-name>Carlos Almeida</strong>
+            <span>Motorista de Entregas</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn--ghost btn--block" data-logout>Encerrar sessão</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" data-menu-toggle aria-label="Abrir menu de navegação">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+        <div>
+          <h1 class="topbar__title">Perfil e Métricas</h1>
+          <p class="topbar__subtitle">Dados cadastrais e indicadores de desempenho</p>
+        </div>
+        <div class="topbar__spacer"></div>
+        <div class="topbar__date" data-current-date></div>
+      </header>
+
+      <main class="content">
+
+        <!-- ---------- Dados do perfil ---------- -->
+        <section class="card" aria-labelledby="profile-title">
+          <div class="card__body">
+            <div class="profile-head">
+              <div class="profile-head__avatar" data-user-initials>CA</div>
+              <div>
+                <h2 id="profile-title" class="profile-head__name" data-user-name>Carlos Almeida</h2>
+                <p class="profile-head__role">Motorista de Entregas · Rota Sudeste</p>
+              </div>
+            </div>
+            <hr style="border: none; border-top: 1px solid var(--color-border); margin: 20px 0;">
+            <dl class="dl">
+              <dt>Matrícula</dt><dd>ENT-0092</dd>
+              <dt>Base operacional</dt><dd>São Paulo - SP</dd>
+              <dt>Admissão</dt><dd>14/03/2023</dd>
+              <dt>E-mail corporativo</dt><dd>carlos.almeida@lagartintregas.com.br</dd>
+              <dt>Situação</dt><dd>Ativo</dd>
+            </dl>
+          </div>
+        </section>
+
+        <!-- ---------- Indicadores ---------- -->
+        <section aria-labelledby="metrics-title">
+          <h2 id="metrics-title" class="section-title">Indicadores de Desempenho</h2>
+          <p class="section-sub">Consolidado do mês de julho de 2026</p>
+          <div class="grid grid--3">
+            <div class="card metric-card">
+              <span class="metric-card__label">Total de KM rodados</span>
+              <span class="metric-card__value">12.480 km</span>
+              <span class="metric-card__note"><strong>+8,4%</strong> em relação ao mês anterior</span>
+            </div>
+            <div class="card metric-card">
+              <span class="metric-card__label">Entregas realizadas</span>
+              <span class="metric-card__value">342</span>
+              <span class="metric-card__note"><strong>+12</strong> entregas vs. meta de 330</span>
+            </div>
+            <div class="card metric-card">
+              <span class="metric-card__label">Eficiência mensal</span>
+              <span class="metric-card__value">94%</span>
+              <span class="metric-card__note">Entregas concluídas dentro do prazo previsto</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---------- Histórico mensal ---------- -->
+        <div class="grid grid--main">
+          <section class="card" aria-labelledby="history-title">
+            <div class="card__header">
+              <div>
+                <h2 id="history-title" class="card__title">Entregas por Mês — 2026</h2>
+                <p class="card__hint">Volume mensal de entregas concluídas</p>
+              </div>
+            </div>
+            <div class="card__body">
+              <div class="bars" role="img" aria-label="Gráfico de barras: entregas mensais de janeiro a julho de 2026">
+                <div class="bars__col">
+                  <span class="bars__value">38</span>
+                  <div class="bars__bar" style="height: 55%;"></div>
+                  <span class="bars__label">Jan</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">42</span>
+                  <div class="bars__bar" style="height: 61%;"></div>
+                  <span class="bars__label">Fev</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">45</span>
+                  <div class="bars__bar" style="height: 65%;"></div>
+                  <span class="bars__label">Mar</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">47</span>
+                  <div class="bars__bar" style="height: 68%;"></div>
+                  <span class="bars__label">Abr</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">51</span>
+                  <div class="bars__bar" style="height: 74%;"></div>
+                  <span class="bars__label">Mai</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">55</span>
+                  <div class="bars__bar" style="height: 80%;"></div>
+                  <span class="bars__label">Jun</span>
+                </div>
+                <div class="bars__col">
+                  <span class="bars__value">28</span>
+                  <div class="bars__bar bars__bar--current" style="height: 41%;"></div>
+                  <span class="bars__label">Jul</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="summary-title">
+            <div class="card__header">
+              <h2 id="summary-title" class="card__title">Resumo do Período</h2>
+            </div>
+            <div class="card__body">
+              <dl class="dl">
+                <dt>Avaliação média</dt><dd>4,8 / 5,0</dd>
+                <dt>Entregas no prazo</dt><dd>321 de 342</dd>
+                <dt>Ocorrências abertas</dt><dd>2</dd>
+                <dt>Melhor mês (2026)</dt><dd>Junho — 55 entregas</dd>
+                <dt>Média diária de KM</dt><dd>210 km</dd>
+              </dl>
+            </div>
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
