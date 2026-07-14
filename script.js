@@ -73,7 +73,19 @@
     { id: "ENT-1061", inicio: "2026-07-14", prevista: "2026-07-16", destino: "Diadema - SP", status: "Pendente", lat: -23.6862, lng: -46.6228 },
     { id: "ENT-1064", inicio: "2026-07-14", prevista: "2026-07-18", destino: "Mauá - SP", status: "Pendente", lat: -23.6680, lng: -46.4614 },
     { id: "ENT-1067", inicio: "2026-07-15", prevista: "2026-07-17", destino: "Barueri - SP", status: "Pendente", lat: -23.5113, lng: -46.8764 },
-    { id: "ENT-1073", inicio: "2026-07-16", prevista: "2026-07-17", destino: "Taboão da Serra - SP", status: "Pendente", lat: -23.6262, lng: -46.7917 }
+    { id: "ENT-1073", inicio: "2026-07-16", prevista: "2026-07-17", destino: "Taboão da Serra - SP", status: "Pendente", lat: -23.6262, lng: -46.7917 },
+    { id: "ENT-1075", inicio: "2026-07-01", prevista: "2026-07-02", destino: "São Paulo - SP (Zona Sul)", status: "Entregue", lat: -23.6001, lng: -46.6375 },
+    { id: "ENT-1076", inicio: "2026-07-01", prevista: "2026-07-03", destino: "São Paulo - SP (Zona Norte)", status: "Entregue", lat: -23.4902, lng: -46.6300 },
+    { id: "ENT-1077", inicio: "2026-07-02", prevista: "2026-07-04", destino: "São Paulo - SP (Zona Oeste)", status: "Entregue", lat: -23.5489, lng: -46.7245 },
+    { id: "ENT-1078", inicio: "2026-07-03", prevista: "2026-07-05", destino: "São Paulo - SP (Zona Leste)", status: "Entregue", lat: -23.5467, lng: -46.4900 },
+    { id: "ENT-1079", inicio: "2026-07-04", prevista: "2026-07-06", destino: "Cotia - SP", status: "Entregue", lat: -23.6031, lng: -46.9195 },
+    { id: "ENT-1080", inicio: "2026-07-05", prevista: "2026-07-07", destino: "Embu das Artes - SP", status: "Entregue", lat: -23.6488, lng: -46.8521 },
+    { id: "ENT-1081", inicio: "2026-07-07", prevista: "2026-07-09", destino: "Itapecerica da Serra - SP", status: "Entregue", lat: -23.7175, lng: -46.8491 },
+    { id: "ENT-1082", inicio: "2026-07-08", prevista: "2026-07-10", destino: "Ferraz de Vasconcelos - SP", status: "Entregue", lat: -23.5418, lng: -46.3687 },
+    { id: "ENT-1083", inicio: "2026-07-09", prevista: "2026-07-11", destino: "Poá - SP", status: "Entregue", lat: -23.5278, lng: -46.3433 },
+    { id: "ENT-1084", inicio: "2026-07-10", prevista: "2026-07-12", destino: "Suzano - SP", status: "Entregue", lat: -23.5425, lng: -46.3114 },
+    { id: "ENT-1085", inicio: "2026-07-11", prevista: "2026-07-13", destino: "Mogi das Cruzes - SP", status: "Entregue", lat: -23.5225, lng: -46.1867 },
+    { id: "ENT-1086", inicio: "2026-07-12", prevista: "2026-07-14", destino: "Ribeirão Pires - SP", status: "Entregue", lat: -23.7135, lng: -46.4138 }
   ];
 
   /* -------------------- Autenticação -------------------- */
@@ -566,6 +578,7 @@
 
     ENTREGAS.forEach(function (item) {
       if (!item.lat || !item.lng) return;
+      if (item.status === "Entregue") return;
 
       var color = "#c89024";
       if (item.status === "Entregue") color = "#4c9a72";
